@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  golinks:
+    image: brokenscripts/golinks
+    container_name: golinks
+    restart: unless-stopped
+    volumes:
+      - "${HOME}/golinks:/search.db"
+    environment:
+      BIND: "0.0.0.0:8000"
+      BASEURL: "https://golinks.kvineet.in"
+      DBPATH: "/search.db"
+      TITLE: "GoLinks"
+      SEARCHURL: "https://www.google.com/search?q=%s&btnK"
+      SUGGESTURL: "https://suggestqueries.google.com/complete/search?client=firefox&q=%s"
