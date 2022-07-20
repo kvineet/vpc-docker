@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  browsermax:
+    image: jare/browsermax:latest
+    container_name: browsermax
+    restart: unless-stopped
+    volumes:
+      - "${HOME}/golinks:/search.db"
+    environment:
+      APPROXIMATE_MAX_CONNECTION_LENGTH_S: 3600
+networks: 
+  default: 
+    external: 
+      name: vpc-services
