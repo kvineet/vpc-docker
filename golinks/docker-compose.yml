@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.3"
 
 services:
   golinks:
@@ -6,7 +6,7 @@ services:
     container_name: golinks
     restart: unless-stopped
     volumes:
-      - "${HOME}/golinks:/search.db"
+      - "${HOME}/vpc-docker/golinks/data/:/search.db"
     environment:
       BIND: "0.0.0.0:8000"
       BASEURL: "https://golinks.kvineet.in"
@@ -14,3 +14,7 @@ services:
       TITLE: "GoLinks"
       SEARCHURL: "https://www.google.com/search?q=%s&btnK"
       SUGGESTURL: "https://suggestqueries.google.com/complete/search?client=firefox&q=%s"
+networks: 
+  default: 
+    external: 
+      name: vpc-services

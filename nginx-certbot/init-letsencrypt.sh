@@ -5,8 +5,8 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-#domains=(example.org www.example.org)
-domains=( $(grep 'server_name' ./data/nginx/app.conf | cut -d' ' -f6 | sed ':x; /;$/ {N; s/;\n/ /; tx }') )
+# domains=(golinks.kvineet.in emacs.kvineet.in)
+domains=( $(grep '# certbot' ./data/nginx/app.conf | cut -d';' -f1 | sed 's/ \{1,\}server_name //') )
 
 rsa_key_size=4096
 data_path="./data/certbot"
