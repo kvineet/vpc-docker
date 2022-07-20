@@ -6,7 +6,7 @@ services:
     container_name: browsermax
     restart: unless-stopped
     volumes:
-      - "${HOME}/golinks:/search.db"
+      - "${HOME}/vpc-docker/emacs/data/:/home/emacs/.emacs.d/.cache"
     environment:
       APPROXIMATE_MAX_CONNECTION_LENGTH_S: 3600
 networks: 
