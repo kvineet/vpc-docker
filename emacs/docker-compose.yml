@@ -2,13 +2,15 @@ version: "3.3"
 
 services:
   browsermax:
-    image: jare/browsermax:latest
+    image: docker.io/jare/browsermax:latest
     container_name: browsermax
     restart: unless-stopped
     volumes:
       - "${HOME}/vpc-docker/emacs/data/:/home/emacs/.emacs.d/.cache"
     environment:
       APPROXIMATE_MAX_CONNECTION_LENGTH_S: 3600
+    port:
+      - 10000:10000
 networks: 
   default: 
     external: 
