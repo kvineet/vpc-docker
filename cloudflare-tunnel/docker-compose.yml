@@ -10,7 +10,9 @@ services:
     command: tunnel --no-autoupdate run
     env_file:
       - secret.env
+    networks:
+      - proxy
 networks:
-  default:
+  proxy:
     name: proxy
     external: true
