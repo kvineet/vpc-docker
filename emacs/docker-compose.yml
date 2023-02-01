@@ -9,7 +9,7 @@ services:
       - "${HOME}/vpc-docker/emacs/data/:/home/emacs/.emacs.d/.cache"
     environment:
       APPROXIMATE_MAX_CONNECTION_LENGTH_S: 3600
-    port:
+    ports:
       - 10000:10000
 networks: 
   default: 

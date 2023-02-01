@@ -16,5 +16,5 @@ services:
       SUGGESTURL: "https://suggestqueries.google.com/complete/search?client=firefox&q=%s"
 networks:
   default:
-    external:
-      name: proxy
+    name: proxy
+    external: true
