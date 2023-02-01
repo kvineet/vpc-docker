@@ -14,7 +14,7 @@ services:
       TITLE: "GoLinks"
       SEARCHURL: "https://www.google.com/search?q=%s&btnK"
       SUGGESTURL: "https://suggestqueries.google.com/complete/search?client=firefox&q=%s"
-networks: 
-  default: 
-    external: 
-      name: vpc-services
+networks:
+  default:
+    external:
+      name: proxy
