@@ -10,6 +10,8 @@ services:
     command: tunnel --no-autoupdate run
     env_file:
       - secret.env
+      - ../common.env
+      - ./common.env
     networks:
       - proxy
 networks:
