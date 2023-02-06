@@ -7,6 +7,9 @@ services:
     restart: unless-stopped
     volumes:
       - "${HOME}/vpc-docker/golinks/data/:/search.db"
+    env_file:
+      - ../common.env
+      - ./common.env
     environment:
       BIND: "0.0.0.0:8000"
       BASEURL: "https://golinks.kvineet.in"

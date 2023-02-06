@@ -1,0 +1,11 @@
+version: "2.1"
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    env_file:
+      - ../common.env
+      - ./common.env
+    volumes:
+      - "${HOME}/vpc-docker/grocy/data/:/config"
+    restart: unless-stopped
