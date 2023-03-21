@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  grocy:
+  babybuddy:
     image: lscr.io/linuxserver/babybuddy:latest
     container_name: babybuddy
     env_file:
