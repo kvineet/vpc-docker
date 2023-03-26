@@ -8,6 +8,8 @@ services:
     # Enables the web UI and tells Traefik to listen to docker
     restart: unless-stopped
     command: tunnel --no-autoupdate run
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - secret.env
       - ../common.env
