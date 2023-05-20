@@ -1,0 +1,20 @@
+version: "2.1"
+services:
+  grafana:
+    image: grafana/grafana-oss:main-ubuntu
+    container_name: grafana
+    env_file:
+      - ../common.env
+      - ./common.env
+    environment:
+      - GF_LOG_MODE=console file
+    volumes:
+      - "${HOME}/.config/babybuddy/data/:/ds-babybuddy/:ro"
+    restart: unless-stopped
+    expose:
+      - 3000
+    user: '1000'
+networks:
+  default:
+    name: proxy
+    external: true

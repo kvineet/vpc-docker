@@ -9,7 +9,7 @@ fi
 domains=( $(grep '# certbot' ./data/nginx/app.conf | cut -d';' -f1 | sed 's/ \{1,\}server_name //') )
 
 rsa_key_size=4096
-data_path="./data/certbot"
+data_path="$HOME/.config/certbot"
 
 email="kvineet.in@gmail.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
