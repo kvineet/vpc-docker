@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   babybuddy:
-    image: lscr.io/linuxserver/babybuddy:latest
+    image: lscr.io/linuxserver/babybuddy:v1.13.2-ls62
     container_name: babybuddy
     env_file:
       - ../common.env
@@ -9,7 +9,7 @@ services:
     environment:
       - CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,https://babybuddy.kvineet.in
     volumes:
-      - "${HOME}/.config/babybuddy/:/config"
+      - "/datadisk/config/babybuddy/:/config"
     restart: unless-stopped
 networks:
   default:
