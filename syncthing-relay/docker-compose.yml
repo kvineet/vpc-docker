@@ -5,7 +5,7 @@ services:
     image: kylemanna/syncthing-relay
     container_name: syncthingrly
     env_file:
-      - ./common.env
+      - ../common.env
     restart: unless-stopped
     volumes:
       - syncthing-relay:/relaysrv
