@@ -10,6 +10,9 @@ services:
     volumes:
       - syncthing-relay:/relaysrv
     command: -pools=""
+    ports:
+      - 22067:22067
+      - 22070:22070
 networks:
   default:
     name: proxy
