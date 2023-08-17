@@ -1,15 +1,19 @@
 version: '3'
 
 services:
-  watchtower:
+  syncthingrly:
     image: kylemanna/syncthing-relay
-    container_name: syncthing-relay
+    container_name: syncthingrly
     env_file:
       - ./common.env
     restart: unless-stopped
     volumes:
       - syncthing-relay:/relaysrv
     command: -pools=""
+networks:
+  default:
+    name: proxy
+    external: true
 volumes:
   syncthing-relay:
     external: true
