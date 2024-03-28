@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    env_file:
+      - ../common.env
+    environment:
+      - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN}
+    restart: unless-stopped
+    volumes:
+      - /datadisk/vaultwarden:/data
+    expose:
+      - 80
+networks:
+  default:
+    name: proxy
+    external: true

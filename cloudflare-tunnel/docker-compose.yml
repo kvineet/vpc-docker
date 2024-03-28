@@ -11,9 +11,10 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     env_file:
-      - secret.env
       - ../common.env
       - ./common.env
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
     networks:
       - proxy
 networks:

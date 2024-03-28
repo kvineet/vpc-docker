@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   babybuddy:
-    image: lscr.io/linuxserver/babybuddy:v1.13.2-ls62
+    image: lscr.io/linuxserver/babybuddy:latest
     container_name: babybuddy
     env_file:
       - ../common.env
