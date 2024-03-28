@@ -3,16 +3,16 @@ version: '3.3'
 services:
   fireflyii:
     image: fireflyiii/core:latest
-    hostname: app
     container_name: firefly_iii_core
     restart: always
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
-    env_file: .env
+    env_file: 
+      - ../common.env
+      - .env
     networks:
       - firefly_iii
-    ports:
-      - 80:8080
+      - proxy
     depends_on:
       - db
   db:
@@ -42,5 +42,8 @@ volumes:
    firefly_iii_db:
 
 networks:
+  proxy:
+    name: proxy
+    external: true
   firefly_iii:
     driver: bridge

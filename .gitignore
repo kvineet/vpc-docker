@@ -1,3 +1,5 @@
 .htpasswd
 */data
 .env
+# ignore any .<name>.env files
+.*.env
