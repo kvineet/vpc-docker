@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  paisa:
+    image: ananthakumaran/paisa:latest
+    container_name: paisa
+    env_file:
+      - ../common.env
+    expose:
+      - 7500
+    volumes:
+      - "/datadisk/config/paisa/:/root/Documents/paisa/"
+    restart: unless-stopped
+networks:
+  default:
+    name: proxy
+    external: true
