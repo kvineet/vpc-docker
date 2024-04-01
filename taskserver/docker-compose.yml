@@ -6,6 +6,8 @@ services:
     env_file:
       - ../common.env
       - env
+    ports:
+      - "53589:53589"
     volumes:
       - "/datadisk/config/taskd/:/var/taskd"
     restart: unless-stopped
