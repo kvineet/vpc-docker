@@ -21,13 +21,10 @@ services:
     networks:
       - proxy
     volumes:
-      - "/datadisk/config/taskwebui/taskrc/:/.taskrc"
+      - "/datadisk/config/taskwebui/taskrc:/.taskrc"
       - "/datadisk/config/taskwebui/task:/.task"
     restart: unless-stopped
 networks:
-  default:
-    external: true
-    name: none
   proxy:
     name: proxy
     external: true
