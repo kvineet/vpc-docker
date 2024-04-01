@@ -2,7 +2,7 @@ version: "2.1"
 services:
   taskd:
     image: ghcr.io/connectical/taskd:latest
-    container_name: babybuddy
+    container_name: taskd
     env_file:
       - ../common.env
       - env
