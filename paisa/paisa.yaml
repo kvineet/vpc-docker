@@ -1,0 +1,24 @@
+journal_path: /root/Documents/ledger/main.ledger
+db_path: paisa.db
+readonly: false
+ledger_cli: ledger
+default_currency: INR
+display_precision: 0
+amount_alignment_column: 52
+locale: en-IN
+time_zone: Asia/Kolkata
+financial_year_starting_month: 4
+week_starting_day: 0
+strict: "yes"
+budget:
+    rollover: "yes"
+schedule_al: []
+allocation_targets: []
+commodities: []
+import_templates: []
+accounts: []
+goals:
+    retirement: []
+    savings: []
+user_accounts: []
+credit_cards: []
