@@ -1,0 +1,70 @@
+# Path to your journal file. It can be absolute or relative to the
+# configuration file. The main journal file can refer other files using
+# `include` as long as all the files are in the same or sub directory
+# REQUIRED
+journal_path: /root/Documents/ledger/main.ledger
+
+# Path to your database file. It can be absolute or relative to the
+# configuration file. The database file will be created if it does not exist.
+# REQUIRED
+db_path: paisa.db
+
+# The ledger client to use
+# OPTIONAL, DEFAULT: ledger, ENUM: ledger, hledger, beancount
+ledger_cli: ledger
+
+# The default currency to use. NOTE: Paisa tries to convert other
+# currencies to default currency, so make sure it's possible to
+# convert to default currency by specifying the exchange rate.
+#
+# OPTIONAL, DEFAULT: INR
+default_currency: INR
+
+# The precision to show in UI. NOTE: This applies only to the UI, not
+# to the entries in journal.
+#
+# OPTIONAL, DEFAULT: 0
+display_precision: 0
+
+# The column to align the amount in the editor.
+#
+# OPTIONAL, DEFAULT: 52
+amount_alignment_column: 52
+
+# The locale used to format numbers. The list of locales supported
+# depends on your browser. It's known to work well with en-US and en-IN.
+#
+# OPTIONAL, DEFAULT: en-IN
+locale: en-IN
+
+# The time zone used to parse and format dates. If not set, system
+# time zone will be used. Example values are Asia/Kolkata,
+# America/New_York, etc
+#
+# OPTIONAL, DEFAULT: system timezone
+time_zone: "Asia/Kolkata"
+
+# First month of the financial year. This can be set to 1 to follow
+# January to December.
+#
+# OPTIONAL, DEFAULT: 4
+financial_year_starting_month: 4
+
+# First day of the week. This can be set to 1 to follow Monday to
+# Sunday. 0 represents Sunday, 1 represents Monday and so on.
+#
+# OPTIONAL, DEFAULT: 0
+week_starting_day: 0
+
+# When strict mode is enabled, all the accounts and commodities should
+# be defined before use. This is same as --pedantic flag in ledger and
+# --strict flag in hledger. Doesn't apply to beancount.
+#
+# OPTIONAL, ENUM: yes, no DEFAULT: no
+strict: "no"
+
+## Budget
+budget:
+  # Rollover unspent money to next month
+  # OPTIONAL, ENUM: yes, no DEFAULT: yes
+  rollover: "yes"

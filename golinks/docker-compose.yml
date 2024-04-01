@@ -6,7 +6,7 @@ services:
     container_name: golinks
     restart: unless-stopped
     volumes:
-      - "/datadisk/config/golinks/:/search.db"
+      - "/datadisk/.state/golinks/:/search.db"
     env_file:
       - ../common.env
       - ./common.env

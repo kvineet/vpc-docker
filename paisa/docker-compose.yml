@@ -8,7 +8,9 @@ services:
     expose:
       - 7500
     volumes:
-      - "/datadisk/config/paisa/:/root/Documents/paisa/"
+      - "/datadisk/.state/paisa/:/root/Documents/paisa/"
+      - "./paisa.yml:/root/Documents/paisa/paisa.yml"
+      - "/datadisk/sync/accounting:/root/Documents/ledger/"
     restart: unless-stopped
 networks:
   default:
