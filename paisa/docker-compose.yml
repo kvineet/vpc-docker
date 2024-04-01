@@ -5,11 +5,13 @@ services:
     container_name: paisa
     env_file:
       - ../common.env
+    environment:
+      - PAISA_CONFIG=/root/Documents/paisa.yaml
     expose:
       - 7500
     volumes:
-      - "/datadisk/.state/paisa/:/root/Documents/paisa/"
-      - "./paisa.yml:/root/Documents/paisa/paisa.yml"
+      - "/datadisk/.state/paisa:/root/Documents/paisa/"
+      - "./paisa.yaml:/root/Documents/paisa.yaml"
       - "/datadisk/sync/accounting:/root/Documents/ledger/"
     restart: unless-stopped
 networks:
