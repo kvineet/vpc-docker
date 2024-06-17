@@ -11,7 +11,7 @@ services:
       - 7500
     volumes:
       - "/datadisk/.state/paisa:/root/Documents/paisa/"
-      - "./paisa.yaml:/root/Documents/paisa.yaml"
+      - "/datadisk/.config/paisa/paisa.yaml:/root/Documents/paisa.yaml"
       - "/datadisk/sync/accounting:/root/Documents/ledger/"
     restart: unless-stopped
 networks:

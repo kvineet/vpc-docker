@@ -9,7 +9,6 @@ services:
     restart: unless-stopped
     volumes:
       - /datadisk/.state/syncthing:/config
-      - /datadisk/.config/syncthing/config.xml:/config/config.xml
       - /datadisk/sync:/sync
     expose:
       - 8384
