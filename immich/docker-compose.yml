@@ -7,42 +7,36 @@
 #
 name: immich
 
+x-volumes: &volumeMounts
+  - ${LIBRARY_LOCATION}:/usr/src/app/upload/library
+  - ${UPLOAD_LOCATION}:/usr/src/app/upload/upload
+  - ${BACKUP_LOCATION}:/usr/src/app/upload/backups
+  - ${THUMBS_LOCATION}:/usr/src/app/upload/thumbs
+  - ${PROFILE_LOCATION}:/usr/src/app/upload/profile
+  - ${VIDEO_LOCATION}:/usr/src/app/upload/encoded-video
+  - ${EXTERNAL_PATH}/:/usr/src/app/external
+  - /etc/localtime:/etc/localtime:ro
+
+
 services:
   immich-server:
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
-    command: ['start.sh', 'immich']
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.immich-server.entrypoints=websecure"
+      - "traefik.http.routers.immich-server.rule=Host(`immich.kvineet.in`)"
+      - "traefik.http.routers.immich-server.tls=true"
+      - "traefik.http.routers.immich-server.tls.certresolver=letsenc"
     networks:
       - default
       - proxy
     volumes:
-      - ${UPLOAD_LOCATION}:/usr/src/app/upload
-      - ${EXTERNAL_PATH}/:/usr/src/app/external
-      - /etc/localtime:/etc/localtime:ro
+      *volumeMounts
     env_file:
       - .env
     expose:
       - 2283
-    depends_on:
-      - redis
-      - database
-    restart: always
-
-  immich-microservices:
-    container_name: immich_microservices
-    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
-    # extends: # uncomment this section for hardware acceleration - see https://immich.app/docs/features/hardware-transcoding
-    #   file: hwaccel.transcoding.yml
-    #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
-    command: ['start.sh', 'microservices']
-    volumes:
-      - ${UPLOAD_LOCATION}:/usr/src/app/upload
-      - ${EXTERNAL_PATH}/:/usr/src/app/external
-      - /etc/localtime:/etc/localtime:ro
-    networks:
-      - default
-    env_file:
-      - .env
     depends_on:
       - redis
       - database

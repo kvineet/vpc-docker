@@ -1,0 +1,18 @@
+services:
+  traefik:
+    image: docker.io/traefik:v3.3
+    container_name: traefik
+    env_file:
+      - ../common.env
+      - ./common.env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - "/datadisk/.config/traefik/traefik.yml:/etc/traefik/traefik.yml"
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+networks:
+  default:
+    name: proxy
+    external: true
