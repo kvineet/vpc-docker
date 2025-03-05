@@ -1,0 +1,10 @@
+services:
+  system-prune:
+    image: f213/periodic-docker-prune:1.1.0
+    container_name: system-prune
+    env_file:
+      - ../common.env
+    environment:
+      AT: '02:44'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
