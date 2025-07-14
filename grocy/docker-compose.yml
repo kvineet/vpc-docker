@@ -1,0 +1,15 @@
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    env_file:
+      - ../common.env
+    expose:
+      - 9283
+    volumes:
+      - "/datadisk/.config/grocy:/config"
+    restart: unless-stopped
+networks:
+  default:
+    name: proxy
+    external: true
